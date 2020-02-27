@@ -1,0 +1,35 @@
+$background-section: rgb(252, 246, 228);
+#platillos-home{
+    text-align: center;
+}
+%color-seccion{
+    background-color: $background-section;
+}
+
+#platillo-home{
+    @extend %color-seccion;
+    text-align: center;
+}
+#platillo-peruano{
+    @extend %color-seccion;
+}
+#platillo-chino{
+    @extend %color-seccion;
+}
+#platillo-tailandes{
+    @extend %color-seccion;
+}
+#platillo-mexicano{
+    @extend %color-seccion;
+}
+#platillo-hola{
+    @extend %color-seccion;
+}
+.image{
+   width: 25%;
+    
+}
+.titulo-platillos{
+    font-size: 3rem;
+    color: orange;
+}
