@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap4 Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+  </head>
+  <body>
+    {% extends "layout.html" %}
+  {% block body %}
+<div class="container" style="word-wrap: break-word;">
+  <div class="container" style=" border-top-width: 1px;  border-right-width: 1px;  border-bottom-width: 10px;  border-left-width: 1px; border-bottom-color: black;">
+  <h1>Información sobre el libro:</h1>
+  <h3>isbn: {{isbn}}</h3>
+  <h3>Titulo: {{title}}</h3>
+  <h3>Autor: {{author}}</h3>
+  <h3>Año: {{year}}</h3>
+    </div>
+  <hr>
+  <h1>Reseñas</h1>
+  <hr>
+  {%for res in resenas%}
+  <p><b>{{res.usuario}}</b></p>
+  <p>{{res.resena}}</p>
+  <hr>
+  {% endfor %}
+  <h1 class="color-primary">Dejar un comentario</h1>
+  <form action="" method="post" class="">
+    <div class="d-block" style="width: 45%;">
+  <textarea name="resena"></textarea>
+  <input type="checkbox" id="1c" value="1" name="estrella1"> <label for="1c">1★</label>
+  <input type="checkbox" id="2c" value="2" name="estrella2"> <label for="2c">2★</label>
+  <input type="checkbox" id="3c" value="3" name="estrella3"> <label for="3c">3★</label>
+  <input type="checkbox" id="4c" value="4" name="estrella4"> <label for="4c">4★</label>
+  <input type="checkbox" id="5c" value="5" name="estrella5"> <label for="5c">5★</label>
+  {% if error%}
+  <div class="alert alert-danger">
+    {{error}}
+  </div>
+  {%endif%}
+  </div>
+  <button class="btn btn-primary">Comentar</button>
+  <a class="btn btn-primary" href="{{url_for('busqueda')}} ">Volver</a>
+</form>
+<br>
+</div>
+  {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../static/style.css">
+  </head>
+  <body >
+  {% extends "layout.html" %}
+  {% block body %}
+
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+
+      <form method="post">
+        <input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Ingresa tu nombre de usuario">
+        <input type="text" id="login" class="fadeIn second" name="correo" placeholder="Ingresa tu correo">
+        <input type="password" id="password" class="fadeIn third" name="contrasena" placeholder="Ingresa tu contraseña">
+        <input type="submit" class="fadeIn fourth" value="Registrarme" style="cursor:pointer;">
+      </form>
+      {% if error%}
+      <div class="alert alert-danger">
+        {{error}}
+      </div>
+      {%endif%}
+      <div id="formFooter">
+        <a class="underlineHover" href="{{url_for('index')}}">volver</a>
+      </div>
+    </div>
+  </div>
+
+    {% endblock %}
+  </body>
+</html>
